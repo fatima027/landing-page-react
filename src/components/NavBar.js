@@ -8,7 +8,7 @@ import InfoIcon from '@mui/icons-material/Info';
 import CommentRoundedIcon from '@mui/icons-material/CommentRounded';
 import PhoneRoundedIcon from '@mui/icons-material/PhoneRounded';
 import ShoppingCartRoundedIcon from '@mui/icons-material/ShoppingCartRounded';
-
+import Divider from "@mui/material/Divider";
 
 const NavBar = () => {
   const [openMenu, setOpenMenu] = useState(false);
@@ -52,23 +52,24 @@ const NavBar = () => {
       <div className='navbar-menu-container'>
         <HiOutlineBars3 onClick={()=>{ setOpenMenu(true)}} />
       </div>
-      <Drawer open={openMenu} onClose={()=> setOpenMenu(false)} anchor='right'>
-        <Box 
-          sx={{width: 250}}
+      <Drawer open={openMenu} onClose={() => setOpenMenu(false)} anchor="right">
+        <Box
+          sx={{ width: 250 }}
           role="presentation"
-          onClick={()=> setOpenMenu(false)}
-          onKeyDown={()=> setOpenMenu(false)}
+          onClick={() => setOpenMenu(false)}
+          onKeyDown={() => setOpenMenu(false)}
         >
           <List>
-            {menuOptions.map((item) => {
+            {menuOptions.map((item) => (
               <ListItem key={item.text} disablePadding>
                 <ListItemButton>
                   <ListItemIcon>{item.icon}</ListItemIcon>
-                  <ListItemText primary={item.text}/>
+                  <ListItemText primary={item.text} />
                 </ListItemButton>
               </ListItem>
-            })}
+            ))}
           </List>
+          <Divider />
         </Box>
       </Drawer>
     </nav>
